@@ -32,7 +32,7 @@
     "error_label_is_root_label": "Потребителското име не може да е root.",
     "error_label_is_pikaos_label": "Потребителското име не може да е pikaos.",
     "error_label_username_is_special_label": "Потребителското име не може да съдържа специални символи.",
-    "error_label_hostname_is_special_label": "",
+    "error_label_hostname_is_special_label": "Името на хоста не може да съдържа специални символи или интервали.",
     "error_label_password_mismatch_label": "Паролите не съвпадат!",
     "first_setup_gameutils_box_text_title": "PikaOS Геймърски МЕТА Пакет",
     "first_setup_gameutils_box_text_description": "Бихте ли желали PikaOS Геймърския МЕТА Пакет?\n(от съществено значение, затова е и силно препоръчителен)",
