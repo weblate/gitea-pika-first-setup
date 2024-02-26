@@ -1,7 +1,5 @@
 pub const APP_ID: &str = "com.github.pikaos-linux.pikafirstsetup";
-//pub const GETTEXT_PACKAGE: &str = env!("CARGO_PKG_NAME");
-//pub const LOCALEDIR: &str = "/usr/share/locale";
-//pub const PKGDATADIR: &str = " /usr/share";
-//pub const RESOURCES_FILE: &str = concat!(@PKGDATADIR@, "/resources.gresource");
-//pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const DISTRO_ICON: &str = "pika-logo";
+//pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+pub const APP_ICON: &str = "com.github.pikaos-linux.pikawelcome";
+//pub const APP_GITHUB: &str = "https://github.com/PikaOS-Linux/pkg-pika-welcome";

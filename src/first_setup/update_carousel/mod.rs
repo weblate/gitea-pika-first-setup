@@ -20,11 +20,14 @@ use duct::cmd;
 use std::io::prelude::*;
 use std::io::BufReader;
 
-const APT_UPDATE_PROG: &str = "
+const APT_UPDATE_PROG: &str = r###"
 #! /bin/bash
 set -e
-/usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt update -y && /usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt full-upgrade -y
-";
+export DEBIAN_FRONTEND=noninteractive
+DEBIAN_FRONTEND=noninteractive
+/usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt update -y -o Dpkg::Options::="--force-confnew" || exit 1
+/usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt full-upgrade -y -o Dpkg::Options::="--force-confnew" || exit 1
+"###;
 
 fn apt_update(
     log_loop_sender: async_channel::Sender<String>,

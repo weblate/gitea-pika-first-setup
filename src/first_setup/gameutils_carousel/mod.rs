@@ -20,11 +20,14 @@ use duct::cmd;
 use std::io::prelude::*;
 use std::io::BufReader;
 
-const GAMEUTILS_INSTALL_PROG: &str = "
+const GAMEUTILS_INSTALL_PROG: &str = r###"
 #! /bin/bash
 set -e
-/usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt update -y && /usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt install pika-gameutils-meta -y
-";
+export DEBIAN_FRONTEND=noninteractive
+DEBIAN_FRONTEND=noninteractive
+/usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt update -y -o Dpkg::Options::="--force-confnew" || exit 1
+/usr/lib/pika/pika-first-setup-gtk4/scripts/pika-sudo.sh apt install pika-gameutils-meta -y -o Dpkg::Options::="--force-confnew" || exit 1
+"###;
 
 fn gameutils_install(
     log_loop_sender: async_channel::Sender<String>,
