@@ -32,7 +32,7 @@
     "user_info_password_verify_title": "Ověření uživatelského hesla:",
     "error_label_is_root_label": "Uživatelské jméno nemůže být root.",
     "error_label_is_pikaos_label": "Uživatelské jméno nemůže být pikaos.",
-    "error_label_username_is_special_label": "Uživatelské jméno nemůže obsahovat mezery či speciální znaky.",
+    "error_label_username_is_invalid_label": "Uživatelské jméno nemůže obsahovat mezery či speciální znaky.",
     "error_label_hostname_is_special_label": "Hostitel nemůže obsahovat mezery či speciální znaky.",
     "error_label_password_mismatch_label": "Hesla se neshodují!",
     "first_setup_gameutils_box_text_title": "PikaOS Gaming Meta Package",

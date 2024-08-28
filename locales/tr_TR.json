@@ -33,7 +33,7 @@
     "user_info_password_verify_title": "Kullanıcı şifresini tekrar girin:",
     "error_label_is_root_label": "Kullanıcı adı root olamaz.",
     "error_label_is_pikaos_label": "Kullanıcı adı pikaos olamaz.",
-    "error_label_username_is_special_label": "Kullanıcı adı boşlut yahut özel karakter içeremez.",
+    "error_label_username_is_invalid_label": "Kullanıcı adı boşlut yahut özel karakter içeremez.",
     "error_label_hostname_is_special_label": "Makine adı boşluk yahut özel karakter içeremez.",
     "error_label_password_mismatch_label": "Şifreler eşleşmiyor!",
     "first_setup_gameutils_box_text_title": "PikaOS Oyun Meta Paketi",

@@ -32,7 +32,7 @@
     "user_info_password_verify_title": "Ange Användarlösenord igen:",
     "error_label_is_root_label": "Användarnamn kan inte vara root.",
     "error_label_is_pikaos_label": "Användarnamn kan inte vara pikaos.",
-    "error_label_username_is_special_label": "Användarnamnet får inte innehålla specialtecken eller mellanslag.",
+    "error_label_username_is_invalid_label": "Användarnamnet får inte innehålla specialtecken eller mellanslag.",
     "error_label_hostname_is_special_label": "Hostname får inte innehålla specialtecken eller mellanslag.",
     "error_label_password_mismatch_label": "Lösenorden matchar inte varandra!",
     "first_setup_gameutils_box_text_title": "PikaOS Gaming Meta Package",

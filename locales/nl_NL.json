@@ -33,7 +33,7 @@
     "user_info_password_verify_title": "Voer het gebruikerswachtwoord opnieuw in:",
     "error_label_is_root_label": "Gebruikersnaam mag geen root zijn.",
     "error_label_is_pikaos_label": "Gebruikersnaam mag geen pikaos zijn.",
-    "error_label_username_is_special_label": "De gebruikersnaam mag geen speciale tekens of spaties bevatten.",
+    "error_label_username_is_invalid_label": "De gebruikersnaam mag geen speciale tekens of spaties bevatten.",
     "error_label_hostname_is_special_label": "Hostnaam mag geen speciale tekens of spaties bevatten.",
     "error_label_password_mismatch_label": "Wachtwoorden komen niet overeen!",
     "first_setup_gameutils_box_text_title": "PikaOS Gaming metapakket",

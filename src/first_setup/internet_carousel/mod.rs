@@ -65,10 +65,9 @@ pub fn internet_carousel(
         .title(t!("first_setup_internet_box_text_title"))
         .description(t!("first_setup_internet_box_text_description"))
         .hexpand(true)
-        .vexpand(true)
-        .valign(Align::Start)
+        .vexpand(true)  
         .build();
-    first_setup_internet_box_text.add_css_class("compact");
+
 
     let internet_skip_button = gtk::Button::builder()
         .label(t!("internet_skip_button_label"))

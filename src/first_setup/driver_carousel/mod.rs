@@ -45,7 +45,6 @@ pub fn driver_carousel(
         .title(t!("first_setup_driver_box_text_title"))
         .description(t!("first_setup_driver_box_text_description"))
         .build();
-    first_setup_driver_box_text.add_css_class("compact");
 
     let first_setup_driver_button = gtk::Button::builder()
         .label(t!("first_setup_driver_button_label"))

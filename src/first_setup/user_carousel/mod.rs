@@ -31,10 +31,6 @@ hostnamectl set-hostname "${HOSTNAME}"
 echo "127.0.0.1 ${HOSTNAME}" >> /etc/hosts
 "###;
 
-fn only_alphanumeric(input: &str) -> bool {
-    return input.chars().all(|c| c.is_alphanumeric());
-}
-
 fn uppercase_first_letter(s: &str) -> String {
     let mut c = s.chars();
     match c.next() {
@@ -70,13 +66,35 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
         .margin_top(15)
         .build();
 
-    let first_setup_user_box_text = adw::StatusPage::builder()
+    let first_user_text0 = gtk::Label::builder()
+        .margin_end(15)
+        .margin_start(15)
+        .margin_bottom(5)
+        .margin_top(15)
+        .label(t!("first_setup_user_box_text_title"))
+        .halign(Align::Center)
+        .build();
+    first_user_text0.add_css_class("title-1");
+
+    let first_user_text1 = gtk::Label::builder()
+        .margin_end(15)
+        .margin_start(15)
+        .margin_bottom(15)
+        .margin_top(5)
+        .label(t!("first_setup_user_box_text_description"))
+        .halign(Align::Center)
+        .build();
+
+    /*let first_setup_user_box_text = adw::StatusPage::builder()
         .title(t!("first_setup_user_box_text_title"))
         .description(t!("first_setup_user_box_text_description"))
-        .hexpand(true)
-        .valign(Align::Start)
-        .build();
-    first_setup_user_box_text.add_css_class("compact");
+        .vexpand(true)
+        .hexpand(true)        
+        .build();*/
+
+    let first_setup_user_box_text = gtk::Box::new(Orientation::Vertical, 0);
+    first_setup_user_box_text.append(&first_user_text0);
+    first_setup_user_box_text.append(&first_user_text1);
 
     let user_info_box = gtk::Box::builder()
         .orientation(Orientation::Vertical)
@@ -146,15 +164,50 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
         .build();
     user_info_listbox.add_css_class("boxed-list");
 
-    let error_label = gtk::Label::builder()
-        .margin_top(15)
-        .margin_bottom(15)
-        .margin_start(15)
-        .margin_end(15)
+    let error_label_is_root = gtk::Label::builder()
+        .margin_top(2)
+        .margin_end(2)
+        .label(t!("error_label_is_root_label"))
         .visible(false)
         .build();
 
-    error_label.add_css_class("red-text");
+    error_label_is_root.add_css_class("red-text");
+
+    let error_label_is_pikaos = gtk::Label::builder()
+        .margin_top(2)
+        .margin_end(2)
+        .label(t!("error_label_is_pikaos_label"))
+        .visible(false)
+        .build();
+
+    error_label_is_pikaos.add_css_class("red-text");
+
+    let error_label_username_is_invalid = gtk::Label::builder()
+        .margin_top(2)
+        .margin_end(2)
+        .label(t!("error_label_username_is_invalid_label"))
+        .visible(false)
+        .build();
+
+    error_label_username_is_invalid.add_css_class("red-text");
+
+    let error_label_hostname_is_special = gtk::Label::builder()
+        .margin_top(2)
+        .margin_end(2)
+        .label(t!("error_label_hostname_is_special_label"))
+        .visible(false)
+        .build();
+
+    error_label_hostname_is_special.add_css_class("red-text");
+
+    let error_label_password_mismatch = gtk::Label::builder()
+        .margin_top(2)
+        .margin_end(2)
+        .label(t!("error_label_password_mismatch_label"))
+        .visible(false)
+        .build();
+
+    error_label_password_mismatch.add_css_class("red-text");
 
     let user_next_button = gtk::Button::builder()
         .label(t!("internet_next_button_label"))
@@ -181,7 +234,11 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
 
     first_setup_user_box.append(&first_setup_user_box_text);
     first_setup_user_box.append(&user_info_box_clamp);
-    first_setup_user_box.append(&error_label);
+    first_setup_user_box.append(&error_label_is_root);
+    first_setup_user_box.append(&error_label_is_pikaos);
+    first_setup_user_box.append(&error_label_username_is_invalid);
+    first_setup_user_box.append(&error_label_hostname_is_special);
+    first_setup_user_box.append(&error_label_password_mismatch);
     first_setup_user_box.append(&user_next_button);
 
     // The main loop executes the asynchronous block
@@ -196,7 +253,7 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
         }
     }));
 
-    user_info_username.connect_changed(clone!(@strong user_info_username_valid, @weak user_info_username, @weak user_info_full_name, @weak error_label => move |_| {
+    user_info_username.connect_changed(clone!(@strong user_info_username_valid, @weak user_info_username, @weak user_info_full_name, @weak error_label_username_is_invalid, @weak error_label_is_pikaos, @weak error_label_is_root => move |_| {
         let user_info_username_string = user_info_username.text().to_string();
 
         user_info_full_name.set_text(&uppercase_first_letter(&user_info_username_string));
@@ -206,48 +263,44 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
                 user_info_username.set_position(-1);
         }
 
-        if Regex::new(r"[A-Z]").unwrap().is_match(&user_info_username_string) {
-            user_info_username.set_text(&user_info_username_string.to_lowercase());
-            user_info_username.set_position(-1);
-        }
-
         let mut _username_is_root = false;
         let mut _username_is_pikaos = false;
-        let mut _username_is_special = false;
+        let mut _user_name_is_invalid = false;
 
         if user_info_username_string != "root" {
+            error_label_is_root.set_visible(false);
             _username_is_root=false;
         } else {
-            error_label.set_label(&t!("error_label_is_root_label"));
+            error_label_is_root.set_visible(true);
             _username_is_root=true;
         }
 
         if user_info_username_string != "pikaos" {
+            error_label_is_pikaos.set_visible(false);
             _username_is_pikaos=false;
         } else {
-            error_label.set_label(&t!("error_label_is_pikaos_label"));
+            error_label_is_pikaos.set_visible(true);
             _username_is_pikaos=true;
         }
 
-        if only_alphanumeric(&user_info_username_string) {
-            _username_is_special=false;
+        if Regex::new(r"^[a-z_][-a-z0-9_]*\$?$").unwrap().is_match(&user_info_username_string) || user_info_username_string.is_empty() {
+            error_label_username_is_invalid.set_visible(false);
+            _user_name_is_invalid=false;
         } else {
-            error_label.set_label(&t!("error_label_username_is_special_label"));
-            _username_is_special=true;
+            error_label_username_is_invalid.set_visible(true);
+            _user_name_is_invalid=true;
         }
 
-        if _username_is_root == false && _username_is_pikaos == false && _username_is_special == false {
-            error_label.set_visible(false);
+        if _username_is_root == false && _username_is_pikaos == false && _user_name_is_invalid == false {
             if !user_info_username.text().is_empty() {
                 *user_info_username_valid.borrow_mut()=true;
             }
         } else {
             *user_info_username_valid.borrow_mut()=false;
-            error_label.set_visible(true);
         }
     }));
 
-    user_info_full_name.connect_changed(clone!(@strong user_info_full_name_valid, @weak user_info_full_name, @weak error_label => move |_| {
+    user_info_full_name.connect_changed(clone!(@strong user_info_full_name_valid, @weak user_info_full_name => move |_| {
         let user_info_full_name_string = user_info_full_name.text().to_string();
 
         if user_info_full_name_string.len() > 32 {
@@ -262,7 +315,7 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
         }
     }));
 
-    user_info_hostname.connect_changed(clone!(@strong user_info_hostname_valid, @weak user_info_hostname, @weak user_info_full_name, @weak error_label => move |_| {
+    user_info_hostname.connect_changed(clone!(@strong user_info_hostname_valid, @weak user_info_hostname, @weak user_info_full_name, @weak error_label_hostname_is_special => move |_| {
         let user_info_hostname_string = user_info_hostname.text().to_string();
 
         if user_info_hostname_string.len() > 32 {
@@ -273,24 +326,23 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
         let mut _hostname_is_special = false;
 
         if Regex::new(r"^[A-Za-z0-9\.]*$").unwrap().is_match(&user_info_hostname_string) {
+            error_label_hostname_is_special.set_visible(false);
             _hostname_is_special=false;
         } else {
-            error_label.set_label(&t!("error_label_hostname_is_special_label"));
+            error_label_hostname_is_special.set_visible(true);
             _hostname_is_special=true;
         }
 
         if _hostname_is_special == false {
-            error_label.set_visible(false);
             if !user_info_hostname.text().is_empty() {
                 *user_info_hostname_valid.borrow_mut()=true;
             }
         } else {
             *user_info_hostname_valid.borrow_mut()=false;
-            error_label.set_visible(true);
         }
     }));
 
-    user_info_password.connect_changed(clone!(@strong user_info_passwords_valid,@weak user_info_password_verify_revealer, @weak user_info_password, @weak user_info_password_verify, @weak error_label => move |_| {
+    user_info_password.connect_changed(clone!(@strong user_info_passwords_valid,@weak user_info_password_verify_revealer, @weak user_info_password, @weak user_info_password_verify, @weak error_label_password_mismatch => move |_| {
         if user_info_password.text().is_empty() {
             user_info_password_verify_revealer.set_reveal_child(false)
         } else {
@@ -298,20 +350,20 @@ pub fn user_carousel(first_setup_carousel: &adw::Carousel) {
         }
 
         if user_info_password.text() == user_info_password_verify.text() {
-            error_label.set_visible(false);
+            error_label_password_mismatch.set_visible(false);
             *user_info_passwords_valid.borrow_mut()=true;
         } else {
+            error_label_password_mismatch.set_visible(true);
             *user_info_passwords_valid.borrow_mut()=false;
         }
     }));
 
-    user_info_password_verify.connect_changed(clone!(@strong user_info_passwords_valid, @weak user_info_password, @weak user_info_password_verify, @weak error_label => move |_| {
+    user_info_password_verify.connect_changed(clone!(@strong user_info_passwords_valid, @weak user_info_password, @weak user_info_password_verify, @weak error_label_password_mismatch => move |_| {
         if user_info_password.text() == user_info_password_verify.text() {
-            error_label.set_visible(false);
+            error_label_password_mismatch.set_visible(false);
             *user_info_passwords_valid.borrow_mut()=true;
         } else {
-            error_label.set_visible(true);
-            error_label.set_label(&t!("error_label_password_mismatch_label"));
+            error_label_password_mismatch.set_visible(true);
             *user_info_passwords_valid.borrow_mut()=false;
         }
     }));

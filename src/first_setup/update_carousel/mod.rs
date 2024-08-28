@@ -83,7 +83,7 @@ pub fn update_carousel(
         .title(t!("first_setup_update_box_text_title"))
         .description("We recommend updating your PikaOS install before proceeding\nWould you like to Update your system?")
         .build();
-    first_setup_update_box_text.add_css_class("compact");
+
 
     let first_setup_update_button = gtk::Button::builder()
         .label(t!("first_setup_update_button_label"))

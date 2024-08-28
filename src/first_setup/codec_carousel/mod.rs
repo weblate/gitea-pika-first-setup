@@ -83,7 +83,6 @@ pub fn codec_carousel(
         .title(t!("first_setup_codec_box_text_title"))
         .description(t!("first_setup_codec_box_text_description"))
         .build();
-    first_setup_codec_box_text.add_css_class("compact");
 
     let first_setup_codec_button = gtk::Button::builder()
         .label(t!("first_setup_codec_button_label"))

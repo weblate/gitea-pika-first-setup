@@ -24,7 +24,6 @@ pub fn initial_carousel(first_setup_carousel: &adw::Carousel) {
         .title(t!("first_setup_initial_box_text_title"))
         .description(t!("first_setup_initial_box_text_description"))
         .build();
-    first_setup_initial_box_text.add_css_class("compact");
 
     let first_setup_start_button = gtk::Button::builder()
         .label(t!("first_setup_start_button_label"))
