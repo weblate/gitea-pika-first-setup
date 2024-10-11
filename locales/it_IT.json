@@ -13,7 +13,7 @@
     "first_setup_internet_skip_dialog_heading": "Vuoi saltare la configurazione di Internet?",
     "first_setup_internet_skip_dialog_body": "Saltare la configurazione della rete renderà molti dei prossimi passaggi impossibili!\\nQuesto non è raccomandato.",
     "first_setup_internet_skip_dialog_skip_cancel_label": "Ritorna alla configurazione della rete",
-    "first-setup-internet-skip-dialog-skip-confirm-labe": "Si voglio saltarla!",
+    "first_setup_internet_skip_dialog_skip_confirm_label": "Si voglio saltarla!",
     "first_setup_internet_box_text_description_true": "Il dispositivo è stato connesso a Internet con successo!",
     "first_setup_internet_box_text_description_false": "Non c'è alcuna connessione a Internet!",
     "first_setup_update_box_text_title": "Aggiornamenti di sistema",

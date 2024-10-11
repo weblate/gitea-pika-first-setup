@@ -13,7 +13,7 @@
     "first_setup_internet_skip_dialog_heading": "Skip Network Setup?",
     "first_setup_internet_skip_dialog_body": "Skipping Network Setup will make many of the next steps unavailable!\nThis is NOT recommended.",
     "first_setup_internet_skip_dialog_skip_cancel_label": "Return to Network Setup",
-    "first-setup-internet-skip-dialog-skip-confirm-labe": "Just Skip!",
+    "first_setup_internet_skip_dialog_skip_confirm_label": "Just Skip!",
     "first_setup_internet_box_text_description_true": "Device connected to Internet Successfully!",
     "first_setup_internet_box_text_description_false": "No internet Connection!",
     "first_setup_update_box_text_title": "System Updates",

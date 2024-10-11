@@ -13,7 +13,7 @@
     "first_setup_internet_skip_dialog_heading": "Пропусни Мрежова Настройка?",
     "first_setup_internet_skip_dialog_body": "Пропускайки Мрежовата Настройка, много от следващите стъпки ще са недостъпни!\nТова НЕ Е препоръчително.",
     "first_setup_internet_skip_dialog_skip_cancel_label": "Обратно към Мрежови Настройки",
-    "first-setup-internet-skip-dialog-skip-confirm-labe": "Просто Пропусни!",
+    "first_setup_internet_skip_dialog_skip_confirm_label": "Просто Пропусни!",
     "first_setup_internet_box_text_description_true": "Устройството се свърза с Интернет успешно!",
     "first_setup_internet_box_text_description_false": "Няма връзка с Интернет!",
     "first_setup_update_box_text_title": "Системни Актуализации",

@@ -13,7 +13,7 @@
     "first_setup_internet_skip_dialog_heading": "Ağ Kurulumunu atla?",
     "first_setup_internet_skip_dialog_body": "Ağ Bağlantısı Kurulumunu atlamak sonraki birçok adımı erişilemez yapacaktır!\nBu tavsiye EDİLMEZ.",
     "first_setup_internet_skip_dialog_skip_cancel_label": "Ağ Bağlantısı Kurulumuna Geri Dön",
-    "first-setup-internet-skip-dialog-skip-confirm-labe": "Sadece Atla!",
+    "first_setup_internet_skip_dialog_skip_confirm_label": "Sadece Atla!",
     "first_setup_internet_box_text_description_true": "Cihaz İnternete başarıyla bağlandı!",
     "first_setup_internet_box_text_description_false": "İnternet Bağlantısı yok!",
     "first_setup_update_box_text_title": "Sistem Güncellemeleri",

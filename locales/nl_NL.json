@@ -13,7 +13,7 @@
     "first_setup_internet_skip_dialog_heading": "Netwerkconfiguratie overslaan?",
     "first_setup_internet_skip_dialog_body": "Als u Netwerkinstellingen overslaat, zijn veel van de volgende stappen niet beschikbaar!\nDit wordt NIET aanbevolen.",
     "first_setup_internet_skip_dialog_skip_cancel_label": "Terug naar netwerkinstellingen",
-    "first-setup-internet-skip-dialog-skip-confirm-labe": "Gewoon overslaan!",
+    "first_setup_internet_skip_dialog_skip_confirm_label": "Gewoon overslaan!",
     "first_setup_internet_box_text_description_true": "Apparaat is succesvol verbonden met internet!",
     "first_setup_internet_box_text_description_false": "Geen internetverbinding!",
     "first_setup_update_box_text_title": "Systeemupdates",

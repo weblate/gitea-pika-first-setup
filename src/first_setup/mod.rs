@@ -15,19 +15,19 @@ use std::rc::Rc;
 mod initial_carousel;
 mod internet_carousel;
 mod user_carousel;
-mod update_carousel;
+/*mod update_carousel;
 mod driver_carousel;
 mod codec_carousel;
-mod gameutils_carousel;
+mod gameutils_carousel;*/
 mod final_carousel;
 
 use initial_carousel::*;
 use internet_carousel::*;
 use user_carousel::*;
-use update_carousel::*;
+/*use update_carousel::*;
 use driver_carousel::*;
 use codec_carousel::*;
-use gameutils_carousel::*;
+use gameutils_carousel::*;*/
 use final_carousel::*;
 
 pub fn first_setup(window: &adw::ApplicationWindow) {
@@ -72,10 +72,10 @@ pub fn first_setup(window: &adw::ApplicationWindow) {
     initial_carousel(&first_setup_carousel);
     internet_carousel(&first_setup_carousel, &internet_connected, &window);
     user_carousel(&first_setup_carousel);
-    update_carousel(&first_setup_carousel, &internet_connected, &window);
+    /*update_carousel(&first_setup_carousel, &internet_connected, &window);
     driver_carousel(&first_setup_carousel, &internet_connected);
     codec_carousel(&first_setup_carousel, &internet_connected, &window);
-    gameutils_carousel(&first_setup_carousel, &internet_connected, &window);
+    gameutils_carousel(&first_setup_carousel, &internet_connected, &window);*/
     final_carousel(&first_setup_carousel);
 
     // Add file to window
