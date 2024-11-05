@@ -1,3 +1,9 @@
+pika-first-setup (1.0.2-101pika5) pika; urgency=low
+
+  * Update host ip
+
+ -- Ward Nakchbandi <hotrod.master@hotmail.com>  Thu, 20 Sep 2022 22:01:00 +0000
+
 pika-first-setup (1.0.2-101pika4) pika; urgency=low
 
   * Update host ip
