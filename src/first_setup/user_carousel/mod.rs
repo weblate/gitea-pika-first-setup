@@ -28,7 +28,8 @@ chown -R "${USERNAME}":"${USERNAME}" /home/"${USERNAME}"
 usermod -a -G adm,cdrom,sudo,render,dip,video,plugdev,input,render,lpadmin "${USERNAME}"
 rm -rf /etc/sddm.conf.d/zautologin.conf || true
 hostnamectl set-hostname "${HOSTNAME}"
-echo "\n127.0.1.1 ${HOSTNAME}" >> /etc/hosts
+echo "" >> /etc/hosts
+echo "127.0.1.1 ${HOSTNAME}" >> /etc/hosts
 "###;
 
 fn uppercase_first_letter(s: &str) -> String {
