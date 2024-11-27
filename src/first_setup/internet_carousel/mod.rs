@@ -166,16 +166,18 @@ pub fn internet_carousel(
     }));
 
     first_setup_internet_button.connect_clicked(move |_| {
-        let env_xdg_session_desktop = env::var("XDG_SESSION_DESKTOP").unwrap();
+        let env_xdg_session_desktop = env::var("XDG_SESSION_DESKTOP").unwrap().to_lowercase();
         if env_xdg_session_desktop.contains("gnome") || env_xdg_session_desktop.contains("ubuntu") {
-            Command::new("gnome-control-center")
+            let _ = Command::new("gnome-control-center")
                 .arg("network")
-                .spawn()
-                .expect("gnome-control-center failed to start");
+                .spawn();
+        } else if env_xdg_session_desktop.contains("plasma") || env_xdg_session_desktop.contains("kde") {
+            let _ = Command::new("systemsettings")
+                .arg("kcm_networkmanagement")
+                .spawn();
         } else {
-            Command::new("nm-connection-editor")
-                .spawn()
-                .expect("nm-connection-editor failed to start");
+            let _ = Command::new("nm-connection-editor")
+                .spawn();
         }
     });
 

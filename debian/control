@@ -14,5 +14,5 @@ Rules-Requires-Root: no
 
 Package: pika-first-setup-gtk4
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, nm-connection-editor
 Description: A frontend in GTK 4 and Libadwaita for initial user setup in pika.
