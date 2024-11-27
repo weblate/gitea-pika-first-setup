@@ -19,6 +19,7 @@ USERNAME="$0"
 PASSWORD="$1"
 FULLNAME="$2"
 HOSTNAME="$3"
+groupadd -g 1000 "${USERNAME}"
 adduser --uid 1000 --gid 1000 --quiet --disabled-password --shell /bin/bash --gecos "${FULLNAME}" "${USERNAME}"
 echo "${USERNAME}":"${PASSWORD}" | chpasswd
 usermod -a -G sudo "${USERNAME}"
