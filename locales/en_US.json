@@ -33,7 +33,7 @@
     "user_info_password_verify_title": "Enter User password again:",
     "error_label_is_root_label": "Username can not be root.",
     "error_label_is_pikaos_label": "Username can not be pikaos.",
-    "error_label_username_is_invalid_label": "Username is invalid.",
+    "error_label_username_is_invalid_label": "Username is can only contain:\nlowercase letters\n \"-\" and \"_\"\n and must start with a lowercase letter.",
     "error_label_hostname_is_special_label": "Hostname can not contain special characters or spaces.",
     "error_label_password_mismatch_label": "Passwords do not match!",
     "first_setup_gameutils_box_text_title": "PikaOS Gaming Meta Package",
