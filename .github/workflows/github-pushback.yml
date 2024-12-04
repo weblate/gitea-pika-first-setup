@@ -25,5 +25,8 @@ jobs:
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         if_key_exists: replace
 
+    - name: Export SSH KEY
+      run: echo "${{ secrets.SSH_KEY }}" > /root/.ssh/id_rsa
+
     - name: Run
       run: ./.github/github_pushback.sh
