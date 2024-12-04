@@ -1,4 +1,4 @@
-### PikaOS initial user setup
+## PikaOS initial user setup
 A Rust based GTK4 + Libadwaita App
 for handling initial user setup on PikaOS.
 
