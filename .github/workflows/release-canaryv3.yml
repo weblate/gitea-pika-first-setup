@@ -19,7 +19,7 @@ jobs:
     steps:
 
     - name: Not github check
-      run: echo "${PWD##*/}" | grep "gitea-pika-first-setup" || exit 0
+      run: echo "${PWD##*/}" | grep "gitea-pika-first-setup" || exit 1
 
     - uses: actions/checkout@v3
 

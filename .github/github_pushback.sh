@@ -4,7 +4,7 @@ if echo "${PWD##*/}" | grep "gitea-pika-first-setup"
 then
     echo "This is github attempt pushback"
 else
-    echo "No push back here" && exit 0
+    echo "No push back here" && exit 1
 fi
 
 
