@@ -1,4 +1,4 @@
-name: PikaOS Package Build & Release (amd64-v3)
+name: Github Push back to gitea
 
 on:
   push:
@@ -16,5 +16,5 @@ jobs:
 
     steps:
 
-    - name: Release Package
-      run: ./.github/github_pushback.sh
+    - name: Run
+      run: ls
