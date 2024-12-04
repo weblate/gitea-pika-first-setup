@@ -1,12 +1,5 @@
 #! /bin/bash
 
-if echo "${PWD##*/}" | grep "gitea-pika-first-setup"
-then
-    echo "This is github attempt pushback"
-else
-    echo "No push back here" && exit 1
-fi
-
 mkdir -p ~/.ssh
 ssh-keyscan pika-os.com >> ~/.ssh/known_hosts
 ssh-keyscan git.pika-os.com >> ~/.ssh/known_hosts
