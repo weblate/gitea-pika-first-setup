@@ -7,7 +7,7 @@ else
     echo "No push back here" && exit 1
 fi
 
-
+ssh -vT git@git.pika-os.com
 
 # Commit changes to git
 git config --global user.name 'ferreo'
