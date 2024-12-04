@@ -1,8 +1,8 @@
 #! /bin/bash
 
-#mkdir -p ~/.ssh
-#ssh-keyscan pika-os.com >> ~/.ssh/known_hosts
-#ssh-keyscan git.pika-os.com >> ~/.ssh/known_hosts
+mkdir -p ~/.ssh
+ssh-keyscan pika-os.com >> ~/.ssh/known_hosts
+ssh-keyscan git.pika-os.com >> ~/.ssh/known_hosts
 #ssh-agent -a $SSH_AUTH_SOCK > /dev/null
 #ssh-add - <<< "$1"
 
