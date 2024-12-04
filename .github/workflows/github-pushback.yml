@@ -1,0 +1,20 @@
+name: PikaOS Package Build & Release (amd64-v3)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/pikaos-linux/pikaos-builder:nestv3
+      volumes:
+        - /proc:/proc
+      options: --privileged -it
+
+    steps:
+
+    - name: Release Package
+      run: ./.github/github_pushback.sh
