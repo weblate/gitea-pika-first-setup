@@ -10,8 +10,8 @@ fi
 
 
 # Commit changes to git
-git config --global user.name 'Github Mirror Push Back - Ward'
-git config --global user.email 'hotrod.master@hotmail.com'
+git config --global user.name 'ferreo'
+git config --global user.email 'harderthanfire@gmail.com'
 git config --global --add safe.directory /__w/gitea-pika-first-setup/gitea-pika-first-setup
 git remote set-url origin git@git.pika-os.com:custom-gui-packages/pika-first-setup
 git add .
