@@ -7,6 +7,11 @@ else
     echo "No push back here" && exit 1
 fi
 
+mkdir -p ~/.ssh
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+ssh-add - <<< "$1"
+
 ssh -vT git@git.pika-os.com
 
 # Commit changes to git
