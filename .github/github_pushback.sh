@@ -1,8 +1,8 @@
 #! /bin/bash
 
 mkdir -p ~/.ssh
-ssh-keyscan pika-os.com >> ~/.ssh/known_hosts
-ssh-keyscan git.pika-os.com >> ~/.ssh/known_hosts
+ssh-keyscan  -H pika-os.com >> ~/.ssh/known_hosts
+ssh-keyscan  -H git.pika-os.com >> ~/.ssh/known_hosts
 #echo -e "Host git.pika-os.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 #echo -e "Host git.pika-os.com\n\tIdentityFile ~/.ssh/id_rsa\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 #ssh-agent -a $SSH_AUTH_SOCK > /dev/null
