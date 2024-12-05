@@ -21,7 +21,7 @@ git config --global user.email 'cosmo@pika-os.com'
 git clone git@git.pika-os.com:custom-gui-packages/pika-first-setup
 
 rm -rfv ./gitea-pika-first-setup/.git
-cp ./pika-first-setup/.git ./gitea-pika-first-setup/
+cp -rfv ./pika-first-setup/.git ./gitea-pika-first-setup/
 
 cd ./gitea-pika-first-setup
 git add .
