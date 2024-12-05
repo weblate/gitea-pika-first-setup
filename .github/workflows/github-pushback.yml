@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  Push:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/pikaos-linux/pikaos-builder:nestv3
@@ -26,10 +26,6 @@ jobs:
       env:
         RUNNER_ORIGIN: ${{ secrets.RUNNER_ORIGIN }}
 
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
@@ -39,6 +35,7 @@ jobs:
         if_key_exists: replace
 
     - name: Run
-      env:
-        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-      run: ./.github/github_pushback.sh
+      run: git clone https://github.com/PikaOS-Linux/gitea-pika-first-setup
+
+    - name: Run
+      run: ./gitea-pika-first-setup/.github/github_pushback.sh
