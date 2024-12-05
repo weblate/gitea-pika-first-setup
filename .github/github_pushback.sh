@@ -11,11 +11,11 @@ ssh-keyscan  -H git.pika-os.com >> ~/.ssh/known_hosts
 #export GIT_SSH_COMMAND="ssh -F ~/.ssh/config"
 
 #ssh -o StrictHostKeyChecking=no -vT git@git.pika-os.com
-ssh -vT git@git.pika-os.com
+#ssh -vT git@git.pika-os.com
 
 # Commit changes to git
-git config --global user.name 'ferreo'
-git config --global user.email 'harderthanfire@gmail.com'
+git config --global user.name 'Github Gitea Push Back Key - Cosmo'
+git config --global user.email 'cosmo@pika-os.com'
 git config --global --add safe.directory /__w/gitea-pika-first-setup/gitea-pika-first-setup
 git remote set-url origin git@git.pika-os.com:custom-gui-packages/pika-first-setup
 git add .

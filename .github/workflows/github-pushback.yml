@@ -16,10 +16,17 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v3
+    - name: Runner Origin Check
+      run: |
+        if [ "${{ secrets.RUNNER_ORIGIN }}" = "github" ]; then
+          true
+        else
+          exit 1
+        fi
+      env:
+        RUNNER_ORIGIN: ${{ secrets.RUNNER_ORIGIN }}
 
-    - name: Is github check
-      run: echo "${PWD##*/}" | grep "gitea-pika-first-setup" || exit 1
+    - uses: actions/checkout@v3
 
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
