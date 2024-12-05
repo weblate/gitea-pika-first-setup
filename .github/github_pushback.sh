@@ -20,4 +20,4 @@ git config --global --add safe.directory /__w/gitea-pika-first-setup/gitea-pika-
 git remote set-url origin git@git.pika-os.com:custom-gui-packages/pika-first-setup
 git add .
 git commit -am"Github Mirror Push Back"
-git push
+git push --force
