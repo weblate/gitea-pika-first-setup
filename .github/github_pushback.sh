@@ -10,7 +10,8 @@ ssh-keyscan  -H git.pika-os.com >> ~/.ssh/known_hosts
 
 #export GIT_SSH_COMMAND="ssh -F ~/.ssh/config"
 
-ssh -o StrictHostKeyChecking=no -vT git@git.pika-os.com
+#ssh -o StrictHostKeyChecking=no -vT git@git.pika-os.com
+ssh -vT git@git.pika-os.com
 
 # Commit changes to git
 git config --global user.name 'ferreo'
